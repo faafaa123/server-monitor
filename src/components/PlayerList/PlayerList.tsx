@@ -1,3 +1,7 @@
+import type { JSXElement } from "@fluentui/react-components";
+import { List, ListItem } from "@fluentui/react-components";
+import { tokens, Text, makeResetStyles } from "@fluentui/react-components";
+
 const dynamicObjects = {
     "_id": {
         "$oid": "67d56d17ee565d42b354c8f1"
@@ -82,18 +86,28 @@ const dynamicObjects = {
     "vehicles": {}
 }
 
+const useTextStyle = makeResetStyles({
+
+  color: tokens.colorNeutralForeground1,
+
+});
+
 export default function PlayerList() {
+
+    const textStyle = useTextStyle();
 
     const listItems = Object.values(dynamicObjects.players).map(player =>
 
-        <li key={player.id}>
-            {'Spieler: ' + player.id + ' befindet sich an Position: x=' + player.x + ' y=' + player.y + ' z=' + player.z}
-        </li>
+        <ListItem key={player.id}>
+
+            <Text className={textStyle}>{'Spieler: ' + player.id + ' befindet sich an Position: x=' + player.x + ' y=' + player.y + ' z=' + player.z}</Text>
+        
+        </ListItem>
 
     )
 
     return (
-        <ul>{listItems}</ul>
+        <List navigationMode="items">{listItems}</List>
     )
 
 }
