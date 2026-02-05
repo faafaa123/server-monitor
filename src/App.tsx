@@ -6,10 +6,38 @@ function App() {
 
   return (
     <>
-      <PlayerList/>
+
+      <div className='container'>
+
+        <div className="server-stats">
+
+          Server-Stats
+
+        </div>
+
+        <div className="mongo-db">
+
+          Mongo-DB
+
+        </div>
+
+        <div className="application">
+
+          Application
+
+        </div>
+
+        <div className="players">
+
+          <PlayerList />
+
+        </div>
+
+      </div>
+
     </>
   )
-  
+
 }
 
 export default App

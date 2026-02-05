@@ -2,3 +2,57 @@
   margin: 0 auto;
 }
 
+
+
+.container {
+
+  display: grid;
+
+  grid-template-areas:
+
+    "server-stats mongo-db application"
+    "players players players";
+
+  grid-template-columns: auto auto auto;
+
+  grid-template-rows: 1fr 2fr;
+
+  gap: 3px;
+
+  background-color: dodgerblue;
+
+  padding: 5px;
+
+}
+
+.container div {
+
+  background-color: white;
+
+  padding: 10px;
+
+}
+
+.container div.server-stats {
+
+  grid-area: server-stats;
+
+}
+
+.container div.mongo-db {
+
+  grid-area: mongo-db;
+
+}
+
+.container div.application {
+
+  grid-area: application;
+
+}
+
+.container div.players {
+
+  grid-area: players;
+
+}
