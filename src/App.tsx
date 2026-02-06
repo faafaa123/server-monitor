@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import PlayerList from './components/PlayerList/PlayerList'
 import ServerStats from './components/ServerStats/ServerStats'
+import { MongoDb } from './components/MongoDB/MongoDb'
 
 function App() {
 
@@ -12,13 +13,13 @@ function App() {
 
         <div className="server-stats">
 
-          <ServerStats/>
+          <ServerStats />
 
         </div>
 
         <div className="mongo-db">
 
-          Mongo-DB
+          <MongoDb />
 
         </div>
 

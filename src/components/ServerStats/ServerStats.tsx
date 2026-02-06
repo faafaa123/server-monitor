@@ -6,6 +6,7 @@ import { Card, CardHeader, CardPreview } from "@fluentui/react-components";
 import chip from '../../assets/chip.png'
 import ram from '../../assets/ram.png'
 import disk from '../../assets/disk.png'
+import { Title } from "../utils/Title";
 
 const useStyles = makeStyles({
     main: {
@@ -25,8 +26,6 @@ const useStyles = makeStyles({
         width: "fit-content",
     },
 
-    title: { margin: "0 0 12px" },
-
     horizontalCardImage: {
         width: "64px",
         height: "64px",
@@ -39,18 +38,6 @@ const useStyles = makeStyles({
     text: { margin: "0" },
 });
 
-const Title = ({ children }: React.PropsWithChildren<{}>) => {
-
-    const styles = useStyles();
-
-    return (
-        <Subtitle1 as="h4" block className={styles.title}>
-            {children}
-        </Subtitle1>
-    );
-
-};
-
 export default function ServerStats() {
 
     const styles = useStyles();
@@ -59,9 +46,9 @@ export default function ServerStats() {
 
         <div className={styles.main}>
 
-            <section className={styles.section}>
+            <Title>Resource-Usage</Title>
 
-                <Title>Resource-Usage</Title>
+            <section className={styles.section}>
 
                 <Card className={styles.card} orientation="horizontal" size="small">
 
