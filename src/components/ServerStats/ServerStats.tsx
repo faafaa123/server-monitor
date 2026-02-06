@@ -63,7 +63,7 @@ export default function ServerStats() {
 
                 <Title>Resource-Usage</Title>
 
-                <Card className={styles.card} orientation="horizontal">
+                <Card className={styles.card} orientation="horizontal" size="small">
 
                     <CardPreview className={styles.horizontalCardImage}>
 
@@ -79,7 +79,7 @@ export default function ServerStats() {
 
             <section className={styles.section}>
 
-                <Card className={styles.card} orientation="horizontal">
+                <Card className={styles.card} orientation="horizontal" size="small">
 
                     <CardPreview className={styles.horizontalCardImage}>
 
@@ -95,11 +95,11 @@ export default function ServerStats() {
 
             <section className={styles.section}>
 
-                <Card className={styles.card} orientation="horizontal">
+                <Card className={styles.card} orientation="horizontal" size="small">
 
                     <CardPreview className={styles.horizontalCardImage}>
 
-                        <img className={styles.horizontalCardImage} src={ram} alt="Disk" />
+                        <img className={styles.horizontalCardImage} src={disk} alt="Disk" />
 
                     </CardPreview>
 
