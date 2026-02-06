@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import PlayerList from './components/PlayerList/PlayerList'
+import ServerStats from './components/ServerStats/ServerStats'
 
 function App() {
 
@@ -11,7 +12,7 @@ function App() {
 
         <div className="server-stats">
 
-          Server-Stats
+          <ServerStats/>
 
         </div>
 

@@ -8,7 +8,10 @@ createRoot(document.getElementById('root')!).render(
   // <StrictMode>
   //   <App />
   // </StrictMode>,
-    <FluentProvider theme={webLightTheme}>
+   <StrictMode>
+   <FluentProvider theme={webLightTheme}>
     <App />
   </FluentProvider>,
+  </StrictMode>,
+ 
 )
