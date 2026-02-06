@@ -3,6 +3,7 @@ import './App.css'
 import PlayerList from './components/PlayerList/PlayerList'
 import ServerStats from './components/ServerStats/ServerStats'
 import { MongoDb } from './components/MongoDB/MongoDb'
+import { Application } from './components/Application/Application'
 
 function App() {
 
@@ -25,7 +26,7 @@ function App() {
 
         <div className="application">
 
-          Application
+          <Application/>
 
         </div>
 
