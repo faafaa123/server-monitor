@@ -16,15 +16,9 @@ const useStyles = makeStyles({
 
 });
 
-const useTextStyle = makeResetStyles({
-    color: tokens.colorNeutralForeground1,
-});
-
 export const MongoDb = (): JSXElement => {
 
     const styles = useStyles();
-
-    const textStyle = useTextStyle();
 
     return (
 
