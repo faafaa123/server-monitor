@@ -30,14 +30,21 @@ export const MongoDb = (): JSXElement => {
 
                 <ListItem style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
                     <Tag size="medium">cropChunks</Tag>
-                    <Badge appearance="outline">245,21 MB</Badge>
+                    <Badge appearance="outline" size="large">245,21 MB</Badge>
                 </ListItem>
 
                  <Divider />
 
                 <ListItem style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
                     <Tag size="medium">countryBorders</Tag>
-                    <Badge appearance="outline">23,84 KB</Badge>
+                    <Badge appearance="outline" size="large">23,84 KB</Badge>
+                </ListItem>
+
+                   <Divider />
+
+                <ListItem style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
+                    <Tag size="medium">subChunks</Tag>
+                    <Badge appearance="outline" size="large">321,43 MB</Badge>
                 </ListItem>
                 
             </List>

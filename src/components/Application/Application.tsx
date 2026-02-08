@@ -5,6 +5,7 @@ import { tokens, Text, makeResetStyles } from "@fluentui/react-components";
 import { Title } from "../utils/Title";
 import { Tag, Badge } from "@fluentui/react-components";
 import { Field, ProgressBar } from "@fluentui/react-components";
+import { ChunkCard } from "./utils/ChunkCard";
 
 const useStyles = makeStyles({
 
@@ -26,6 +27,8 @@ export const Application = (): JSXElement => {
         <div className={styles.main}>
 
             <Title>Application</Title>
+
+            <ChunkCard/>
 
             <Spinner labelPosition="before" label="Creating chunks 2 / 9" />
 
