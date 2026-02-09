@@ -30,19 +30,21 @@ const resolveAsset = (asset: string) => {
 };
 
 const useStyles = makeStyles({
+        main: {
+        gap: "6px",
+        display: "flex",
+        flexDirection: "row",
+        flexWrap: "wrap",
+    },
     card: {
         width: "360px",
         maxWidth: "100%",
         height: "fit-content",
     },
-    cardsFlexbox: {
+    section: {
+        width: "fit-content",
+    },
 
-        display: "flex",
-        flexDirection: "row",
-        flexWrap: "wrap",
-        gap: "15px"
-
-    }
 });
 
 export const ChunkCard = (): JSXElement => {
@@ -50,42 +52,48 @@ export const ChunkCard = (): JSXElement => {
 
     return (
 
-        <div className={styles.cardsFlexbox}>
+        <div className={styles.main}>
 
-            <Card className={styles.card}>
-                <CardHeader
-                    header={
-                       <Title1>Chunks</Title1>
-                    }
-                />
+            <section className={styles.section}>
 
-                <List>
+                <Card className={styles.card}>
+                    <CardHeader
+                        header={
+                            <Title1>Chunks</Title1>
+                        }
+                    />
 
-                    <ListItem style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
-                        <Tag size="medium">total number of chunks</Tag>
-                        <Badge appearance="outline" size="large">124</Badge>
-                    </ListItem>
+                    <List>
 
-                    <Divider />
+                        <ListItem style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
+                            <Tag size="medium">total number of chunks</Tag>
+                            <Badge appearance="outline" size="large">124</Badge>
+                        </ListItem>
 
-                    <ListItem style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
-                        <Tag size="medium">createable chunks</Tag>
-                        <Badge appearance="outline" size="large">2720</Badge>
-                    </ListItem>
+                        <Divider />
 
-                    <Divider />
+                        <ListItem style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
+                            <Tag size="medium">createable chunks</Tag>
+                            <Badge appearance="outline" size="large">2720</Badge>
+                        </ListItem>
 
-                    <ListItem style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
-                        <Tag size="medium">square meters</Tag>
-                        <Body2>48,32 m² / 10.232,30 m²</Body2>
-                    </ListItem>
+                        <Divider />
 
-                </List>
+                        <ListItem style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
+                            <Tag size="medium">square meters</Tag>
+                            <Body2>48,32 m² / 10.232,30 m²</Body2>
+                        </ListItem>
 
-                <CardFooter style={{ display: "flex", justifyContent: "center" }}>
-                    <Spinner labelPosition="before" label="Creating chunks 2 / 9" />
-                </CardFooter>
-            </Card>
+                    </List>
+
+                    <CardFooter style={{ display: "flex", justifyContent: "center" }}>
+                        <Spinner labelPosition="before" label="Creating chunks 2 / 9" />
+                    </CardFooter>
+                </Card>
+
+            </section>
+
+
 
         </div>
 
