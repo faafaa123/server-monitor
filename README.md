@@ -61,3 +61,8 @@ Ziel ist es, typische Anforderungen aus dem Enterprise-Umfeld sauber umzusetzen 
     - PlayerList/
       - PlayerList.tsx
       - PlayerList.css
+    - ServerStats/
+      - ServerStats.tsx
+      - ServerStats.css
+  - utils/
+    - Title.tsx
