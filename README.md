@@ -43,3 +43,21 @@ Ziel ist es, typische Anforderungen aus dem Enterprise-Umfeld sauber umzusetzen 
 ---
 
 ## Projektstruktur
+- src/
+  - App.tsx -> Einstiegsdatei
+  - components/
+    - Application/
+      - Application.tsx
+      - Application.css
+        - utils/
+          - ChunkCard.tsx
+          - ChunkCard.css
+    - MongoDB/
+      - MongoDb.tsx
+      - MongoDb.css
+        - utils/
+          - CollectionItem.tsx
+          - CollectionItem.css
+    - PlayerList/
+      - PlayerList.tsx
+      - PlayerList.css
