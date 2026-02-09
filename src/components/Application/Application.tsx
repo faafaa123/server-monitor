@@ -30,8 +30,6 @@ export const Application = (): JSXElement => {
 
             <ChunkCard/>
 
-            <Spinner labelPosition="before" label="Creating chunks 2 / 9" />
-
         </div>
 
     );

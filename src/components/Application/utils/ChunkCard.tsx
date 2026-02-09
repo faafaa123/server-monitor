@@ -9,6 +9,16 @@ import {
     CardFooter,
     CardHeader,
     CardPreview,
+    Badge,
+    Divider,
+    List,
+    ListItem,
+    Tag,
+    Spinner,
+    Body1Stronger,
+    Subtitle1,
+    Body2,
+    Title1,
 } from "@fluentui/react-components";
 import { ArrowReplyRegular, ShareRegular } from "@fluentui/react-icons";
 
@@ -21,40 +31,63 @@ const resolveAsset = (asset: string) => {
 
 const useStyles = makeStyles({
     card: {
-        margin: "auto",
-        width: "720px",
+        width: "360px",
         maxWidth: "100%",
+        height: "fit-content",
     },
+    cardsFlexbox: {
+
+        display: "flex",
+        flexDirection: "row",
+        flexWrap: "wrap",
+        gap: "15px"
+
+    }
 });
 
 export const ChunkCard = (): JSXElement => {
     const styles = useStyles();
 
     return (
-        <Card className={styles.card}>
-            <CardHeader
-                header={
-                    <Body1>
-                        <b>Chunks</b>
-                    </Body1>
-                }
-            />
 
-            <CardPreview
-                logo={
-                    <img src={resolveAsset("docx.png")} alt="Microsoft Word document" />
-                }
-            >
-                <img
-                    src={resolveAsset("doc_template.png")}
-                    alt="Preview of a Word document: About Us - Overview"
+        <div className={styles.cardsFlexbox}>
+
+            <Card className={styles.card}>
+                <CardHeader
+                    header={
+                       <Title1>Chunks</Title1>
+                    }
                 />
-            </CardPreview>
 
-            <CardFooter>
-                <Button icon={<ArrowReplyRegular fontSize={16} />}>Reply</Button>
-                <Button icon={<ShareRegular fontSize={16} />}>Share</Button>
-            </CardFooter>
-        </Card>
+                <List>
+
+                    <ListItem style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
+                        <Tag size="medium">total number of chunks</Tag>
+                        <Badge appearance="outline" size="large">124</Badge>
+                    </ListItem>
+
+                    <Divider />
+
+                    <ListItem style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
+                        <Tag size="medium">createable chunks</Tag>
+                        <Badge appearance="outline" size="large">2720</Badge>
+                    </ListItem>
+
+                    <Divider />
+
+                    <ListItem style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
+                        <Tag size="medium">square meters</Tag>
+                        <Body2>48,32 m² / 10.232,30 m²</Body2>
+                    </ListItem>
+
+                </List>
+
+                <CardFooter style={{ display: "flex", justifyContent: "center" }}>
+                    <Spinner labelPosition="before" label="Creating chunks 2 / 9" />
+                </CardFooter>
+            </Card>
+
+        </div>
+
     );
 };
