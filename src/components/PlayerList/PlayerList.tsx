@@ -1,4 +1,3 @@
-import type { JSXElement } from "@fluentui/react-components";
 import { List, ListItem } from "@fluentui/react-components";
 import { tokens, Text, makeResetStyles } from "@fluentui/react-components";
 

@@ -1,33 +1,18 @@
-import * as React from "react";
 import type { JSXElement } from "@fluentui/react-components";
 import {
     makeStyles,
-    Body1,
-    Caption1,
-    Button,
     Card,
     CardFooter,
     CardHeader,
-    CardPreview,
     Badge,
     Divider,
     List,
     ListItem,
     Tag,
     Spinner,
-    Body1Stronger,
-    Subtitle1,
     Body2,
     Title1,
 } from "@fluentui/react-components";
-import { ArrowReplyRegular, ShareRegular } from "@fluentui/react-icons";
-
-const resolveAsset = (asset: string) => {
-    const ASSET_URL =
-        "https://raw.githubusercontent.com/microsoft/fluentui/master/packages/react-components/react-card/stories/src/assets/";
-
-    return `${ASSET_URL}${asset}`;
-};
 
 const useStyles = makeStyles({
         main: {

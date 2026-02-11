@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './App.css'
 import PlayerList from './components/PlayerList/PlayerList'
 import ServerStats from './components/ServerStats/ServerStats'
