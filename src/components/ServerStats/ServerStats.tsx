@@ -41,9 +41,9 @@ export default function ServerStats() {
 
     const styles = useStyles();
 
-    const socket = useContext(SocketContext);
+    const data = useContext(SocketContext);
 
-    console.log(socket)
+    console.log(data)
 
     return (
 
@@ -61,7 +61,7 @@ export default function ServerStats() {
 
                     </CardPreview>
 
-                    <CardHeader header={<Text weight="semibold">CPU</Text>} description={<Caption1 className={styles.caption}>71.71 %</Caption1>} />
+                    <CardHeader header={<Text weight="semibold">CPU</Text>} description={<Caption1 className={styles.caption}>{data?.serverStats.cpu} %</Caption1>} />
 
                 </Card>
 
