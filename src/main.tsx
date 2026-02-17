@@ -3,15 +3,18 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
 import { FluentProvider, webLightTheme } from '@fluentui/react-components';
+import { SocketContext, socket } from './providers/SocketContext.tsx';
 
 createRoot(document.getElementById('root')!).render(
   // <StrictMode>
   //   <App />
   // </StrictMode>,
-   <StrictMode>
-   <FluentProvider theme={webLightTheme}>
-    <App />
-  </FluentProvider>,
+  <StrictMode>
+    <FluentProvider theme={webLightTheme}>
+      <SocketContext value={socket}>
+        <App />
+      </SocketContext>
+    </FluentProvider>,
   </StrictMode>,
- 
+
 )

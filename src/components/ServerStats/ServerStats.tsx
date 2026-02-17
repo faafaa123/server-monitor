@@ -4,6 +4,8 @@ import chip from '../../assets/chip.png'
 import ram from '../../assets/ram.png'
 import disk from '../../assets/disk.png'
 import { Title } from "../utils/Title";
+import { useContext } from "react";
+import { SocketContext } from "../../providers/SocketContext";
 
 const useStyles = makeStyles({
     main: {
@@ -38,6 +40,10 @@ const useStyles = makeStyles({
 export default function ServerStats() {
 
     const styles = useStyles();
+
+    const socket = useContext(SocketContext);
+
+    console.log(socket)
 
     return (
 
