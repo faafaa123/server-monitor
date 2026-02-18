@@ -2,6 +2,8 @@ import type { JSXElement } from "@fluentui/react-components";
 import { Divider, List, ListItem, makeStyles } from "@fluentui/react-components";
 import { Title } from "../utils/Title";
 import { Tag, Badge } from "@fluentui/react-components";
+import { useContext, useEffect, useState } from "react";
+import { SocketContext } from "../../providers/SocketContext";
 
 const useStyles = makeStyles({
 
@@ -18,6 +20,42 @@ export const MongoDb = (): JSXElement => {
 
     const styles = useStyles();
 
+    const [superLazyState, setSuperLazyState] = useState(null)
+
+    const socketClient = useContext(SocketContext);
+
+    useEffect(() => {
+
+        const handleSuperLazyStats = (data: any) => {
+
+            console.log(data)
+
+            setSuperLazyState(data.mongoDb);
+
+        };
+
+        socketClient.on("superLazyStats", handleSuperLazyStats);
+
+        return () => {
+            socketClient.off("superLazyStats", handleSuperLazyStats);
+        };
+
+    }, []);
+
+    // const listItems = superLazyState.map(collection =>
+
+    //     <ListItem style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
+
+    //         <Tag size="medium">cropChunks</Tag>
+
+    //         <Badge appearance="outline" size="large">245,21 MB</Badge>
+
+    //     </ListItem>
+
+    //     // <Divider />
+
+    // )
+
     return (
 
         <div className={styles.main}>
@@ -26,26 +64,11 @@ export const MongoDb = (): JSXElement => {
 
             <List>
 
-                <ListItem style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
-                    <Tag size="medium">cropChunks</Tag>
-                    <Badge appearance="outline" size="large">245,21 MB</Badge>
-                </ListItem>
+                {/* {listItems} */}
 
-                 <Divider />
-
-                <ListItem style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
-                    <Tag size="medium">countryBorders</Tag>
-                    <Badge appearance="outline" size="large">23,84 KB</Badge>
-                </ListItem>
-
-                   <Divider />
-
-                <ListItem style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
-                    <Tag size="medium">subChunks</Tag>
-                    <Badge appearance="outline" size="large">321,43 MB</Badge>
-                </ListItem>
-                
             </List>
+
+
 
         </div>
 

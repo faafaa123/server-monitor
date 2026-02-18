@@ -56,8 +56,6 @@ export default function ServerStats() {
 
           const handleSuperLazyStats = (data: any) => {
 
-            console.log(data)
-
             setSuperLazyState(data);
 
         };
