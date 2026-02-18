@@ -41,7 +41,8 @@ export default function ServerStats() {
 
     const styles = useStyles();
 
-    const [state, setState] = useState(null)
+    const [lazyState, setLazyState] = useState(null)
+    const [superLazyState, setSuperLazyState] = useState(null)
 
     const socketClient = useContext(SocketContext);
 
@@ -49,14 +50,24 @@ export default function ServerStats() {
 
         const handleLazyStats = (data: any) => {
 
-            setState(data);
+            setLazyState(data);
+
+        };
+
+          const handleSuperLazyStats = (data: any) => {
+
+            console.log(data)
+
+            setSuperLazyState(data);
 
         };
 
         socketClient.on("lazyStats", handleLazyStats);
+        socketClient.on("superLazyStats", handleSuperLazyStats);
 
         return () => {
             socketClient.off("lazyStats", handleLazyStats);
+            socketClient.off("superLazyStats", handleSuperLazyStats);
         };
 
     }, []);
@@ -77,7 +88,7 @@ export default function ServerStats() {
 
                     </CardPreview>
 
-                    <CardHeader header={<Text weight="semibold">CPU</Text>} description={<Caption1 className={styles.caption}>{state ? state.cpu : 0} %</Caption1>} />
+                    <CardHeader header={<Text weight="semibold">CPU</Text>} description={<Caption1 className={styles.caption}>{lazyState ? lazyState.cpu : 0} %</Caption1>} />
 
                 </Card>
 
@@ -93,7 +104,7 @@ export default function ServerStats() {
 
                     </CardPreview>
 
-                    <CardHeader header={<Text weight="semibold">RAM</Text>} description={<Caption1 className={styles.caption}>{state ? state.ram.ramUsed : 0} MB of {state ? state.ram.ramTotal : 0} MB used</Caption1>} />
+                    <CardHeader header={<Text weight="semibold">RAM</Text>} description={<Caption1 className={styles.caption}>{lazyState ? lazyState.ram.ramUsed : 0} MB of {lazyState ? lazyState.ram.ramTotal : 0} MB used</Caption1>} />
 
                 </Card>
 
@@ -109,7 +120,7 @@ export default function ServerStats() {
 
                     </CardPreview>
 
-                    <CardHeader header={<Text weight="semibold">Disk</Text>} description={<Caption1 className={styles.caption}>12 GB of 256 GB used</Caption1>} />
+                    <CardHeader header={<Text weight="semibold">Disk</Text>} description={<Caption1 className={styles.caption}>{superLazyState ? superLazyState.disk.diskUsed : 0} GB of {superLazyState ? superLazyState.disk.diskTotal : 0} GB used</Caption1>} />
 
                 </Card>
 
