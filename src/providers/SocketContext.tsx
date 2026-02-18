@@ -1,36 +1,27 @@
 import { io, Socket } from "socket.io-client";
 import { createContext } from "react";
-import type { basic } from "../interfaces/basic";
 
-export let data: basic
-
-export const socket: Socket = io("https://www.odrivee.de:3002", {
+export const socketClient: Socket = io("http://localhost:3002", {
   autoConnect: false
 });
 
-socket.on("connect", () => {
+socketClient.on("connect", () => {
   console.log("✅ Connected successfully!");
-  console.log("Socket ID:", socket.id);
+  console.log("Socket ID:", socketClient.id);
+
+  socketClient.emit('setupForMonitor')
 });
 
-socket.on("connect_error", (err) => {
+socketClient.on("connect_error", (err) => {
   console.error("❌ Connection failed:", err.message);
 });
 
-socket.on("disconnect", (reason) => {
+socketClient.on("disconnect", (reason) => {
   console.log("🔌 Disconnected:", reason);
 });
 
-socket.on("monitor", (data: basic) => {
+socketClient.connect();
 
-  console.log("Receive monitor data");
-
-  console.log(data)
-
-});
-
-socket.connect();
-
-export const SocketContext = createContext<basic | null>(null);
+export const SocketContext = createContext<Socket | null>(null);
 
 

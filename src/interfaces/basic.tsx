@@ -5,11 +5,13 @@ export interface basic {
 
   serverStats: {
 
-    'cpu': number,
+    cpu: number,
 
-    'ram': number,
+    ramUsed: number,
+    ramTotal: number,
 
-    'disk': number,
+    diskUsed: number,
+    diskTotal: number,
 
   },
 

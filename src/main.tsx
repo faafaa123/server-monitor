@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
 import { FluentProvider, webLightTheme } from '@fluentui/react-components';
-import { SocketContext, data } from './providers/SocketContext.tsx';
+import { SocketContext, socketClient } from './providers/SocketContext.tsx';
 
 createRoot(document.getElementById('root')!).render(
   // <StrictMode>
@@ -11,7 +11,7 @@ createRoot(document.getElementById('root')!).render(
   // </StrictMode>,
   <StrictMode>
     <FluentProvider theme={webLightTheme}>
-      <SocketContext value={data}>
+      <SocketContext value={socketClient}>
         <App />
       </SocketContext>
     </FluentProvider>,

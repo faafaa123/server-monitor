@@ -4,7 +4,7 @@ import chip from '../../assets/chip.png'
 import ram from '../../assets/ram.png'
 import disk from '../../assets/disk.png'
 import { Title } from "../utils/Title";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { SocketContext } from "../../providers/SocketContext";
 
 const useStyles = makeStyles({
@@ -41,9 +41,25 @@ export default function ServerStats() {
 
     const styles = useStyles();
 
-    const data = useContext(SocketContext);
+    const [state, setState] = useState(null)
 
-    console.log(data)
+    const socketClient = useContext(SocketContext);
+
+    useEffect(() => {
+
+        const handleLazyStats = (data: any) => {
+
+            setState(data);
+
+        };
+
+        socketClient.on("lazyStats", handleLazyStats);
+
+        return () => {
+            socketClient.off("lazyStats", handleLazyStats);
+        };
+
+    }, []);
 
     return (
 
@@ -61,7 +77,7 @@ export default function ServerStats() {
 
                     </CardPreview>
 
-                    <CardHeader header={<Text weight="semibold">CPU</Text>} description={<Caption1 className={styles.caption}>{data?.serverStats.cpu} %</Caption1>} />
+                    <CardHeader header={<Text weight="semibold">CPU</Text>} description={<Caption1 className={styles.caption}>{state ? state.cpu : 0} %</Caption1>} />
 
                 </Card>
 
@@ -77,7 +93,7 @@ export default function ServerStats() {
 
                     </CardPreview>
 
-                    <CardHeader header={<Text weight="semibold">RAM</Text>} description={<Caption1 className={styles.caption}>7135.73 MB of 8105.04 MB used</Caption1>} />
+                    <CardHeader header={<Text weight="semibold">RAM</Text>} description={<Caption1 className={styles.caption}>{state ? state.ram.ramUsed : 0} MB of {state ? state.ram.ramTotal : 0} MB used</Caption1>} />
 
                 </Card>
 
