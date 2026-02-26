@@ -20,7 +20,7 @@ export const MongoDb = (): JSXElement => {
 
     const styles = useStyles();
 
-    const [superLazyState, setSuperLazyState] = useState(null)
+    const [superLazyState, setSuperLazyState] = useState([])
 
     const socketClient = useContext(SocketContext);
 
@@ -42,19 +42,23 @@ export const MongoDb = (): JSXElement => {
 
     }, []);
 
-    // const listItems = superLazyState.map(collection =>
+    const listItems = superLazyState.map(collection =>
 
-    //     <ListItem style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
+        <>
 
-    //         <Tag size="medium">cropChunks</Tag>
+            <ListItem style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap" }}>
 
-    //         <Badge appearance="outline" size="large">245,21 MB</Badge>
+                <Tag size="medium">{collection.collectionName}</Tag>
 
-    //     </ListItem>
+                <Badge appearance="outline" size="large">{collection.storageSize} MB</Badge>
 
-    //     // <Divider />
+            </ListItem>
 
-    // )
+            <Divider />
+
+        </>
+
+    )
 
     return (
 
@@ -64,7 +68,7 @@ export const MongoDb = (): JSXElement => {
 
             <List>
 
-                {/* {listItems} */}
+                {listItems}
 
             </List>
 
