@@ -1,7 +1,7 @@
 import { io, Socket } from "socket.io-client";
 import { createContext } from "react";
 
-export const socketClient: Socket = io("http://localhost:3002", {
+export const socketClient: Socket = io("https://odrivee.de:3002", {
   autoConnect: false
 });
 
